@@ -8,54 +8,69 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var countries = [
-        "Andorra", "UnitedArabEmirates", "Afghanistan", "AntiguaandBarbuda", "Anguilla", "Albania", "Armenia", "Angola",
-        "Antarctica", "Argentina", "AmericanSamoa", "Austria", "Australia", "Aruba", "AlandIslands", "Azerbaijan",
-        "BosniaandHerzegovina", "Barbados", "Bangladesh", "Belgium", "BurkinaFaso", "Bulgaria", "Bahrain", "Burundi", "Benin",
-        "SaintBarthelemy", "Bermuda", "BruneiDarussalam", "BoliviaPlurinationalStateof", "BritishIndianOceanTerritory", "CaribbeanNetherlands", "Brazil",
-        "Bahamas", "Bhutan", "BouvetIsland", "Botswana", "Belarus", "Belize", "Canada", "CocosIslands",
-        "Congo", "CentralAfricanRepublic", "RepublicoftheCongo", "Switzerland", "CotedIvoire",
-        "CookIslands", "Chile", "Cameroon", "China", "Colombia", "CostaRica", "Cuba", "CapeVerde", "Curacao",
-        "ChristmasIsland", "Cyprus", "CzechRepublic", "Germany", "Djibouti", "Denmark", "Dominica", "DominicanRepublic",
-        "Algeria", "Ecuador", "Estonia", "Egypt", "WesternSahara", "Eritrea", "Spain", "Ethiopia", "Europe", "Finland",
-        "Fiji", "FalklandIslands", "MicronesiaFederatedStatesof", "FaroeIslands", "France", "Gabon", "England",
-        "NorthernIreland", "Scotland", "Wales", "NorthernMarianaIslands", "UK", "Grenada", "Georgia", "FrenchGuiana", "Guernsey", "Ghana",
-        "Gibraltar", "Greenland", "Gambia", "Guinea", "Guadeloupe", "EquatorialGuinea", "Greece",
-        "SouthGeorgia", "Guatemala", "Guam", "GuineaBissau", "Guyana", "HongKong",
-        "HeardIslandandMcDonaldIslands", "Honduras", "Croatia", "Haiti", "Hungary", "Indonesia", "Ireland", "Israel",
-        "IsleofMan", "India", "BritishIndianOceanTerritory", "Iraq", "Iran", "Iceland", "Italy", "Jersey", "Jamaica",
-        "Jordan", "Japan", "Kenya", "Kyrgyzstan", "Cambodia", "Kiribati", "Comoros", "SaintKittsandNevis",
-        "HolySee", "NorthKorea", "SouthKorea",  "Kuwait", "CaymanIslands", "Kazakhstan",
-        "Laos", "Lebanon", "SaintLucia", "Liechtenstein", "SriLanka", "Liberia", "Lesotho", "Lithuania", "Luxembourg",
-        "Latvia", "Libya", "Morocco", "Monaco", "Moldova", "Montenegro", "SaintMartin", "Madagascar", "MarshallIslands",
-        "NorthMacedonia", "Mali", "Myanmar", "Mongolia", "Macao", "NorthernMarianaIslands", "Martinique", "Mauritania",
-        "Montserrat", "Malta", "Mauritius", "Maldives", "Malawi", "Mexico", "Malaysia", "Mozambique", "Namibia",
-        "NewCaledonia", "Niger", "NorfolkIsland", "Nigeria", "Nicaragua", "Netherlands", "Norway", "Nepal", "Nauru",
-        "Niue", "NewZealand", "Oman", "Panama", "Peru", "FrenchPolynesia", "PapuaNewGuinea", "Philippines", "Pakistan",
-        "Poland", "SaintPierreandMiquelon", "Pitcairn", "PuertoRico", "Palestine", "Portugal", "Palau", "Paraguay", "Qatar",
-        "Reunion", "Romania", "Serbia", "Russia", "Rwanda", "SaudiArabia", "SolomonIslands", "Seychelles",
-        "Sudan", "Sweden", "Singapore", "SaintHelenaAscensionandTristandaCunha", "Slovenia", "Svalbard",
-        "Slovakia", "SierraLeone", "SanMarino", "Senegal", "Somalia", "Suriname", "SouthSudan", "SaoTomeandPrincipe",
-        "ElSalvador", "SintMaarten", "Syria", "Swaziland", "Turks", "Chad",
-        "FrenchSouthernTerritories", "Togo", "Thailand", "Tajikistan", "Tokelau", "TimorLeste", "Turkmenistan", "Tunisia",
-        "Tonga", "Turkey", "Trinidad", "Tuvalu", "Taiwan", "Tanzania", "Ukraine", "Uganda",
-        "USMinorOutlyingIslands", "US", "Uruguay", "Uzbekistan", "HolySee", "SaintVincentandtheGrenadines",
-        "Venezuela", "VirginIslandsBritish", "VirginIslandsUS", "Vietnam", "Vanuatu", "WallisandFutunaIslands", "Samoa",
-        "Kosovo", "Yemen", "Mayotte", "SouthAfrica", "Zambia", "Zimbabwe"
-    ].shuffled()
-
+    //    @State private var countries = [
+    //        "Andorra", "UnitedArabEmirates", "Afghanistan", "AntiguaandBarbuda", "Anguilla", "Albania", "Armenia", "Angola",
+    //        "Antarctica", "Argentina", "AmericanSamoa", "Austria", "Australia", "Aruba", "AlandIslands", "Azerbaijan",
+    //        "BosniaandHerzegovina", "Barbados", "Bangladesh", "Belgium", "BurkinaFaso", "Bulgaria", "Bahrain", "Burundi", "Benin",
+    //        "SaintBarthelemy", "Bermuda", "BruneiDarussalam", "BoliviaPlurinationalStateof", "BritishIndianOceanTerritory", "CaribbeanNetherlands", "Brazil",
+    //        "Bahamas", "Bhutan", "BouvetIsland", "Botswana", "Belarus", "Belize", "Canada", "CocosIslands",
+    //        "Congo", "CentralAfricanRepublic", "RepublicoftheCongo", "Switzerland", "CotedIvoire",
+    //        "CookIslands", "Chile", "Cameroon", "China", "Colombia", "CostaRica", "Cuba", "CapeVerde", "Curacao",
+    //        "ChristmasIsland", "Cyprus", "CzechRepublic", "Germany", "Djibouti", "Denmark", "Dominica", "DominicanRepublic",
+    //        "Algeria", "Ecuador", "Estonia", "Egypt", "WesternSahara", "Eritrea", "Spain", "Ethiopia", "Europe", "Finland",
+    //        "Fiji", "FalklandIslands", "MicronesiaFederatedStatesof", "FaroeIslands", "France", "Gabon", "England",
+    //        "NorthernIreland", "Scotland", "Wales", "NorthernMarianaIslands", "UK", "Grenada", "Georgia", "FrenchGuiana", "Guernsey", "Ghana",
+    //        "Gibraltar", "Greenland", "Gambia", "Guinea", "Guadeloupe", "EquatorialGuinea", "Greece",
+    //        "SouthGeorgia", "Guatemala", "Guam", "GuineaBissau", "Guyana", "HongKong",
+    //        "HeardIslandandMcDonaldIslands", "Honduras", "Croatia", "Haiti", "Hungary", "Indonesia", "Ireland", "Israel",
+    //        "IsleofMan", "India", "BritishIndianOceanTerritory", "Iraq", "Iran", "Iceland", "Italy", "Jersey", "Jamaica",
+    //        "Jordan", "Japan", "Kenya", "Kyrgyzstan", "Cambodia", "Kiribati", "Comoros", "SaintKittsandNevis",
+    //        "HolySee", "NorthKorea", "SouthKorea",  "Kuwait", "CaymanIslands", "Kazakhstan",
+    //        "Laos", "Lebanon", "SaintLucia", "Liechtenstein", "SriLanka", "Liberia", "Lesotho", "Lithuania", "Luxembourg",
+    //        "Latvia", "Libya", "Morocco", "Monaco", "Moldova", "Montenegro", "SaintMartin", "Madagascar", "MarshallIslands",
+    //        "NorthMacedonia", "Mali", "Myanmar", "Mongolia", "Macao", "NorthernMarianaIslands", "Martinique", "Mauritania",
+    //        "Montserrat", "Malta", "Mauritius", "Maldives", "Malawi", "Mexico", "Malaysia", "Mozambique", "Namibia",
+    //        "NewCaledonia", "Niger", "NorfolkIsland", "Nigeria", "Nicaragua", "Netherlands", "Norway", "Nepal", "Nauru",
+    //        "Niue", "NewZealand", "Oman", "Panama", "Peru", "FrenchPolynesia", "PapuaNewGuinea", "Philippines", "Pakistan",
+    //        "Poland", "SaintPierreandMiquelon", "Pitcairn", "PuertoRico", "Palestine", "Portugal", "Palau", "Paraguay", "Qatar",
+    //        "Reunion", "Romania", "Serbia", "Russia", "Rwanda", "SaudiArabia", "SolomonIslands", "Seychelles",
+    //        "Sudan", "Sweden", "Singapore", "SaintHelenaAscensionandTristandaCunha", "Slovenia", "Svalbard",
+    //        "Slovakia", "SierraLeone", "SanMarino", "Senegal", "Somalia", "Suriname", "SouthSudan", "SaoTomeandPrincipe",
+    //        "ElSalvador", "SintMaarten", "Syria", "Swaziland", "Turks", "Chad",
+    //        "FrenchSouthernTerritories", "Togo", "Thailand", "Tajikistan", "Tokelau", "TimorLeste", "Turkmenistan", "Tunisia",
+    //        "Tonga", "Turkey", "Trinidad", "Tuvalu", "Taiwan", "Tanzania", "Ukraine", "Uganda",
+    //        "USMinorOutlyingIslands", "US", "Uruguay", "Uzbekistan", "HolySee", "SaintVincentandtheGrenadines",
+    //        "Venezuela", "VirginIslandsBritish", "VirginIslandsUS", "Vietnam", "Vanuatu", "WallisandFutunaIslands", "Samoa",
+    //        "Kosovo", "Yemen", "Mayotte", "SouthAfrica", "Zambia", "Zimbabwe"
+    //    ].shuffled()
+    
+    @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
+    let labels = [
+        "Estonia": "Flag with three horizontal stripes. Top stripe blue, middle stripe black, bottom stripe white.",
+        "France": "Flag with three vertical stripes. Left stripe blue, middle stripe white, right stripe red.",
+        "Germany": "Flag with three horizontal stripes. Top stripe black, middle stripe red, bottom stripe gold.",
+        "Ireland": "Flag with three vertical stripes. Left stripe green, middle stripe white, right stripe orange.",
+        "Italy": "Flag with three vertical stripes. Left stripe green, middle stripe white, right stripe red.",
+        "Nigeria": "Flag with three vertical stripes. Left stripe green, middle stripe white, right stripe green.",
+        "Poland": "Flag with two horizontal stripes. Top stripe white, bottom stripe red.",
+        "Spain": "Flag with three horizontal stripes. Top thin stripe red, middle thick stripe gold with a crest on the left, bottom thin stripe red.",
+        "UK": "Flag with overlapping red and white crosses, both straight and diagonally, on a blue background.",
+        "Ukraine": "Flag with two horizontal stripes. Top stripe blue, bottom stripe yellow.",
+        "US": "Flag with many red and white stripes, with white stars on a blue background in the top-left corner."
+    ]
+    
     @State private var correctAnswer = Int.random(in: 0...2)
     @State private var score = 0
     @State private var message = ""
     @State private var correctorNot = false
     @State private var gaveAnswer = false
-
+    
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
         gaveAnswer = false
     }
-
+    
     func checkAnswer(_ number: Int, correct: Int) {
         if number == correct {
             score += 1
@@ -63,7 +78,7 @@ struct ContentView: View {
         } else {
             message = countries[correct]
             correctorNot = false
-
+            
             // Show correct answer for 2 seconds, then go to next
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 askQuestion()
@@ -71,7 +86,7 @@ struct ContentView: View {
         }
         gaveAnswer = true
     }
-
+    
     var body: some View {
         ZStack {
             RadialGradient(stops: [
@@ -79,12 +94,12 @@ struct ContentView: View {
                 .init(color: .indigo, location: 0.40)
             ], center: .top, startRadius: 200, endRadius: 700)
             .ignoresSafeArea()
-
+            
             VStack(spacing: 30) {
                 Text("Guess the Flag")
                     .font(.largeTitle.weight(.bold))
                     .foregroundStyle(.white)
-
+                
                 if !gaveAnswer {
                     VStack(spacing: 20) {
                         VStack {
@@ -95,17 +110,18 @@ struct ContentView: View {
                                 .foregroundStyle(.white)
                                 .font(.largeTitle.weight(.semibold))
                         }
-
+                        
                         ForEach(0..<3) { num in
                             Button {
                                 checkAnswer(num, correct: correctAnswer)
                             } label: {
                                 FlagImage(imageName: countries[num])
+                                    .accessibilityLabel(labels[countries[num], default: "Unknown flag"])
                             }
                         }
-
+                        
                         Text("Score: \(score)").scoreFont()
-                            
+                        
                     }
                 } else {
                     if correctorNot {
